@@ -1,45 +1,183 @@
+
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#101010">
   <title>Mango_x2 Studio</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      background-color: #111;
-      color: #f7b733;
-      font-family: sans-serif;
-      text-align: center;
-      padding: 50px;
-    }
-    img {
-      width: 300px;
-      margin-top: 20px;
-    }
-    .button {
-      display: inline-block;
-      margin: 20px 10px;
-      padding: 15px 30px;
-      font-size: 18px;
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background:
+        radial-gradient(ellipse at 50% 42%, #292014 0%, #171511 35%, #101010 75%);
       color: #fff;
-      background-color: #f7b733;
-      border: none;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: background-color 0.2s;
+      font-family: Arial, Helvetica, sans-serif;
+      text-align: center;
     }
+
+    .background-glow {
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      border-radius: 50%;
+      background: #f7a928;
+      filter: blur(180px);
+      opacity: 0.10;
+      pointer-events: none;
+    }
+
+    .container {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-width: 650px;
+      padding: 40px 24px;
+      animation: appear 0.9s ease-out;
+    }
+
+    .logo {
+      width: 220px;
+      max-width: 70%;
+      height: auto;
+      object-fit: contain;
+      margin-bottom: 30px;
+      filter: drop-shadow(0 0 30px rgba(247, 183, 51, 0.13));
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(38px, 7vw, 58px);
+      font-weight: 800;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: #f7b733;
+    }
+
+    .subtitle {
+      margin: 18px 0 42px;
+      color: #aaa49a;
+      font-size: 15px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-width: 205px;
+      padding: 17px 25px;
+      border: 1px solid rgba(247, 183, 51, 0.45);
+      border-radius: 12px;
+      background: rgba(247, 183, 51, 0.09);
+      color: #f7b733;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: 0.25s ease;
+    }
+
     .button:hover {
-      background-color: #ffaa00;
+      transform: translateY(-4px);
+      background: #f7b733;
+      color: #15110a;
+      border-color: #f7b733;
+      box-shadow: 0 8px 30px rgba(247, 183, 51, 0.2);
+    }
+
+    .footer {
+      margin-top: 75px;
+      color: #5f5b54;
+      font-size: 12px;
+      letter-spacing: 1px;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .buttons {
+        flex-direction: column;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+      .footer {
+        margin-top: 55px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+      }
     }
   </style>
 </head>
-<body>
-  <h1>Welcome to Mango_x2</h1>
-  <p>🔥 Game Studio. Indie Power. Pixel Juice.</p>
-  <img src="Logo.png" alt="Mango_x2 Logo">
 
-  <div>
-    <a class="button" href="https://play.google.com/store/apps/details?id=com.zomblox.zomblox" target="_blank">Google Play</a>
-    <a class="button" href="https://yandex.ru/games/app/435691" target="_blank">Яндекс Игры</a>
-  </div>
+<body>
+  <div class="background-glow"></div>
+
+  <main class="container">
+    <img class="logo" src="Logo.png" alt="Mango_x2 Studio Logo">
+
+    <h1>Mango<span>_x2</span></h1>
+
+    <p class="subtitle">
+      Game Studio · Indie Power · Pixel Juice
+    </p>
+
+    <div class="buttons">
+      <a class="button"
+         href="https://play.google.com/store/apps/dev?id=7064874077380765657"
+         target="_blank"
+         rel="noopener noreferrer">
+        Google Play ↗
+      </a>
+
+      <a class="button"
+         href="https://yandex.ru/games/developer/40867"
+         target="_blank"
+         rel="noopener noreferrer">
+        Яндекс Игры ↗
+      </a>
+    </div>
+
+    <div class="footer">
+      © 2026 MANGO_X2 STUDIO
+    </div>
+  </main>
 </body>
 </html>
